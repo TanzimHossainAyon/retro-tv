@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retro CRT TV — Tanzim Hossain Ayon</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="room">
+  <!-- TV SET -->
+  <div class="tv-set" id="tv-set">
+    <div class="tv-body">
+      <!-- SCREEN AREA -->
+      <div class="screen-bezel">
+        <div class="screen-wrap" id="screen-wrap">
+          <canvas id="noise-canvas"></canvas>
+          <div class="scanlines"></div>
+          <div class="screen-glare"></div>
+          <div class="screen-content" id="screen-content">
+            <!-- Channel content injected here -->
+          </div>
+          <div class="channel-osd" id="channel-osd"></div>
+          <div class="static-overlay" id="static-overlay"></div>
+        </div>
+      </div>
+
+      <!-- TV CONTROLS (side panel) -->
+      <div class="tv-controls">
+        <div class="tv-brand">TANZIM TV</div>
+        <div class="tv-knob-group">
+          <div class="knob-label">CH</div>
+          <div class="knob" id="ch-knob" onclick="changeChannel(1)">
+            <div class="knob-line"></div>
+          </div>
+        </div>
+        <div class="tv-knob-group">
+          <div class="knob-label">VOL</div>
+          <div class="knob" id="vol-knob">
+            <div class="knob-line"></div>
+          </div>
+        </div>
+        <div class="tv-led" id="tv-led"></div>
+        <div class="tv-speaker">
+          <div class="speaker-hole"></div>
+          <div class="speaker-hole"></div>
+          <div class="speaker-hole"></div>
+          <div class="speaker-hole"></div>
+          <div class="speaker-hole"></div>
+          <div class="speaker-hole"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TV LEGS -->
+    <div class="tv-legs">
+      <div class="tv-leg"></div>
+      <div class="tv-leg"></div>
+    </div>
+  </div>
+
+  <!-- REMOTE CONTROL -->
+  <div class="remote" id="remote">
+    <div class="remote-top">
+      <div class="remote-brand">TANZIM</div>
+      <button class="remote-power" onclick="togglePower()" title="Power">⏻</button>
+    </div>
+    <div class="remote-screen">
+      <span id="remote-display">CH 1</span>
+    </div>
+    <div class="remote-nav">
+      <button class="r-btn nav-up" onclick="changeChannel(1)">▲</button>
+      <button class="r-btn nav-dn" onclick="changeChannel(-1)">▼</button>
+      <button class="r-btn nav-vol-up" onclick="changeVolume(1)">+</button>
+      <button class="r-btn nav-vol-dn" onclick="changeVolume(-1)">−</button>
+    </div>
+    <div class="remote-numpad">
+      <button class="r-num" onclick="gotoChannel(1)">1</button>
+      <button class="r-num" onclick="gotoChannel(2)">2</button>
+      <button class="r-num" onclick="gotoChannel(3)">3</button>
+      <button class="r-num" onclick="gotoChannel(4)">4</button>
+      <button class="r-num" onclick="gotoChannel(5)">5</button>
+      <button class="r-num" onclick="gotoChannel(6)">6</button>
+      <button class="r-num" onclick="gotoChannel(7)">7</button>
+      <button class="r-num" onclick="gotoChannel(8)">8</button>
+      <button class="r-num" onclick="gotoChannel(9)">9</button>
+      <button class="r-num r-mute" onclick="toggleMute()">🔇</button>
+      <button class="r-num" onclick="gotoChannel(0)">0</button>
+      <button class="r-num r-info" onclick="showInfo()">ℹ</button>
+    </div>
+    <div class="remote-extra">
+      <button class="r-btn r-menu" onclick="changeChannel(1)">CH+</button>
+      <button class="r-btn r-menu" onclick="changeChannel(-1)">CH−</button>
+    </div>
+    <div class="remote-bottom">
+      <div class="remote-ir">📡</div>
+    </div>
+  </div>
+</div>
+
+<!-- POWER OFF OVERLAY -->
+<div id="power-off" class="power-off hidden"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
